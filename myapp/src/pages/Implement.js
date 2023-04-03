@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import NotesList from '../components/NotesList';                   
 import Translate from '../components/Translate';                    
-                                      
+import {MdOutlineTaskAlt,MdOutlineFeaturedPlayList} from 'react-icons/md';
+import {BsTranslate} from 'react-icons/bs';
+                                                                  
 function Implement(){
           const [notes, setNotes] = useState(JSON.parse(
                               localStorage.getItem('notes-app')
@@ -43,24 +45,31 @@ const deleteNote = (id) => {
 return (
           <div className={`${darkMode && 'dark-mode'}`}>
                     <Navbar/>
-                    
-                    <div className='container'>
-                              <div className='left'>
-                                        <NotesList
-                                                  notes={notes.filter((note) =>
-                                                            note.text.toLowerCase().includes(searchText)
-                                                  )}
-                                                  handleAddNote={addNote}
-                                                  handleDeleteNote={deleteNote}
-                                        />
-                              </div> 
-
+                    <div className='notes-container'>
+                              <div className='container'>
+                                        <div className='notes-head'>
+                                                  <MdOutlineTaskAlt size="1.9rem"/>
+                                                  <h2>My Notes</h2>
+                                        </div>
+                                                  <NotesList
+                                                            notes={notes.filter((note) =>
+                                                                      note.text.toLowerCase().includes(searchText)
+                                                            )}
+                                                            handleAddNote={addNote}
+                                                            handleDeleteNote={deleteNote}
+                                                  />
+                                        
+                              </div>
                               <div  className='right'>
-                              <Translate/>   
-                              </div>        
+                                        <div className='notes-head1'>
+                                                  <MdOutlineFeaturedPlayList size="1.9rem"/>
+                                                  <h2>Try Features</h2>
+                                        </div>
+                                        <Translate/>                                 </div> 
+                    </div>       
                                        
                                  
-                    </div>
+                   
                     
                     
           </div>
@@ -68,7 +77,5 @@ return (
 }
 
 export default Implement;
-
-
 
 

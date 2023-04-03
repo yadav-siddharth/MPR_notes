@@ -3,6 +3,7 @@ import { useState } from 'react';
 import {BsFillStarFill,BsStar} from 'react-icons/bs'
 import {AiFillEdit} from 'react-icons/ai'
 
+
 function Note({id,text,date,handleDeleteNote}){
           const [click,setClick]=useState(false);
 
@@ -13,7 +14,7 @@ function Note({id,text,date,handleDeleteNote}){
                              
                               <div className="note-footer">
                                         <strong>{date}</strong>
-                                        <AiFillEdit  className="edit" size={25}/>
+                                        <AiFillEdit size={25}/>
                                         <div className='star' onClick={handleClick}>
                                         {click ? (<BsFillStarFill size="25" style={{color:'black'}}/>):
                                         (<BsStar size={25} style={{color:"#000"}}/>)}

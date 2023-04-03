@@ -85,23 +85,16 @@ const Translate = () => {
     });
   }, []);
   return (
-    <div className="body2">
+    <div >
       <div className="container1">
         <div className="wrapper">
           <div className="text-input">
             <textarea
               spellcheck="false"
               className="from-text"
-              placeholder="Enter text"
+              placeholder="Type your Note"
             >              
           </textarea>
-            <textarea
-              spellcheck="false"
-              readonly
-              disabled
-              className="to-text"
-              placeholder="Translation"
-            ></textarea>
           </div>
           <ul className="controls">
             <li className="row from">
@@ -122,6 +115,16 @@ const Translate = () => {
               </div>
             </li>
           </ul>
+          <div className="text-input">
+            <textarea
+              spellcheck="false"
+              readonly
+              disabled
+              className="to-text"
+              placeholder="Check For Output"
+            ></textarea>
+          </div>
+        
         </div>
         <button>Translate Text</button>
       </div>

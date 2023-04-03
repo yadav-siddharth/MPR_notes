@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './nav.css';
-import {FaBars,FaTimes} from 'react-icons/fa'
-
+import {FaBars,FaTimes,FaHome,FaUserAlt,FaStickyNote} from 'react-icons/fa'
+import {MdNotes,MdOutlineFeaturedPlayList} from 'react-icons/md';
 
 function Navbar(){
 
@@ -23,25 +23,26 @@ function Navbar(){
 
                    return (
                     <div className={'header header-bg'}>
-                              <Link to='/'>Notein.AI</Link>
+                              
+                              <Link to='/'><MdNotes size="1.9rem" style={{color:'#fff'}}/>Notein.AI</Link>
                               <ul className={click ? "nav-menu active " : "nav-menu"}>
                                         <li>
-                                                  <Link to='/'>Home</Link>
+                                                  <Link to='/'><FaHome size="1.2rem" style={{color:'#fff',marginRight:"0.5rem",marginTop:"0.5rem"}}/>Home</Link>
                                         </li>
                                         <li>
-                                                  <Link to='/notes'>Notes</Link>
+                                                  <Link to='/notes'><FaStickyNote size="1.2rem" style={{color:'#fff',marginRight:"0.5rem",marginTop:"0.5rem"}}/>Notes</Link>
                                         </li>
                                         <li>
-                                                  <Link to='/implement'>Features</Link>
+                                                  <Link to='/implement'><MdOutlineFeaturedPlayList size="1.2rem" style={{color:'#fff',marginRight:"0.5rem",marginTop:"0.5rem"}}/>Features</Link>
                                         </li>
                                         <li>
-                                                  <Link to='/login' className=''>Login</Link>   
+                                                  <Link to='/login' className=''><FaUserAlt size="1.2rem" style={{color:'#fff',marginRight:"0.5rem",marginTop:"0.5rem"}}/>Login</Link>   
                                         </li>
                               </ul>
                               
                               <div className='hamburger' onClick={handleClick}>
                                         {click ? (<FaTimes size="20" style={{color:'#fff'}}/>):
-                                        (<FaBars size={20} style={{color:"#000"}}/>)}
+                                        (<FaBars size={20} style={{color:"#fff"}}/>)}
                               </div>
                     </div>
           )
