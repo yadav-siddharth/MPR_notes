@@ -5,7 +5,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import  { useState, useEffect, useRef } from 'react'
 import BIRDS from 'vanta/dist/vanta.birds.min'
-import WAVES from 'vanta/dist/vanta.waves.min'
+import NET from 'vanta/dist/vanta.net.min'
 
 
 const Hero = (props) => {
@@ -13,7 +13,7 @@ const Hero = (props) => {
   const myRef = useRef(null)
   useEffect(() => {
     if (!vantaEffect) {
-      setVantaEffect(WAVES({
+      setVantaEffect(NET({
         el: myRef.current,
         mouseControls: true,
         touchControls: true,
@@ -22,7 +22,8 @@ const Hero = (props) => {
         minWidth: 200.00,
         scale: 1.00,
         scaleMobile: 1.00,
-        color:"#bbf9db"
+        color: 0x539165,
+        backgroundColor: 0xffffff
 
   }))
 }

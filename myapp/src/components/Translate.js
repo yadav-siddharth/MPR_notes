@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
 import countries from "../data";
+
+import Menubar from './Menubar';
+
 const Translate = () => {
   useEffect(() => {
     const fromText = document.querySelector(".from-text");
@@ -87,6 +90,7 @@ const Translate = () => {
   return (
     <div >
       <div className="container1">
+      <Menubar/>
         <div className="wrapper">
           <div className="text-input">
             <textarea
@@ -99,7 +103,7 @@ const Translate = () => {
           <ul className="controls">
             <li className="row from">
               <div className="icons">
-                <i id="from" className="fas fa-volume-up"></i>
+               <i id="from" className="fas fa-volume-up"></i>
                 <i id="from" className="fas fa-copy"></i>
               </div>
               <select></select>
@@ -110,7 +114,7 @@ const Translate = () => {
             <li className="row to">
               <select></select>
               <div className="icons">
-                <i id="to" className="fas fa-volume-up"></i>
+              <i id="to" className="fas fa-volume-up"></i>
                 <i id="to" className="fas fa-copy"></i>
               </div>
             </li>

@@ -1,6 +1,6 @@
-import { useState,useEffect } from "react";
-import { BsFilePlusFill, BsTranslate } from "react-icons/bs";
-const axios = require('axios').default;
+import { useState } from "react";
+import { BsFilePlusFill} from "react-icons/bs";
+
 
 
 function AddNote({handleAddNote}){
@@ -23,17 +23,6 @@ function AddNote({handleAddNote}){
                     
           }
 
-          // useEffect(() => {
-          //           axios.get('https://libretranslate.de/languages', {
-          //               headers: { "accept": 'application/json' },
-          //             })
-          //             .then((res) => {
-          //               console.log(res.data);
-          //               setOptions(res.data);
-          //             });
-          // }, []);
-                
-
 
 
           return (
@@ -45,7 +34,7 @@ function AddNote({handleAddNote}){
                               </textarea>
                               <div className="note-footer">
                                         <strong>{charLimit-noteText.length} Remaining</strong>
-                                        <BsTranslate size="1.9rem"/>
+                                        
                                         <BsFilePlusFill onClick={handleSaveClick} size='2.5em'/>
                               </div>
 

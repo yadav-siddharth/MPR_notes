@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 import NotesList from '../components/NotesList';                   
 import Translate from '../components/Translate';                    
 import {MdOutlineTaskAlt,MdOutlineFeaturedPlayList} from 'react-icons/md';
-import {BsTranslate} from 'react-icons/bs';
+
                                                                   
 function Implement(){
           const [notes, setNotes] = useState(JSON.parse(
@@ -13,6 +13,7 @@ function Implement(){
           ),[
 
 ]);
+
 
 const [searchText, setSearchText] = useState('');
 
@@ -42,13 +43,14 @@ const deleteNote = (id) => {
           setNotes(newNotes);
 };
 
+
 return (
           <div className={`${darkMode && 'dark-mode'}`}>
-                    <Navbar/>
+                    
                     <div className='notes-container'>
                               <div className='container'>
                                         <div className='notes-head'>
-                                                  <MdOutlineTaskAlt size="1.9rem"/>
+                                                  <MdOutlineTaskAlt size="1.9rem" style={{color:'#3F497F'}}/>
                                                   <h2>My Notes</h2>
                                         </div>
                                                   <NotesList
@@ -57,15 +59,18 @@ return (
                                                             )}
                                                             handleAddNote={addNote}
                                                             handleDeleteNote={deleteNote}
+                                                            
+                                                            
                                                   />
                                         
                               </div>
                               <div  className='right'>
                                         <div className='notes-head1'>
-                                                  <MdOutlineFeaturedPlayList size="1.9rem"/>
+                                                  <MdOutlineFeaturedPlayList size="1.9rem" style={{color:'#3F497F'}}/>
                                                   <h2>Try Features</h2>
                                         </div>
-                                        <Translate/>                                 </div> 
+                                        <Translate/>                                 
+                              </div> 
                     </div>       
                                        
                                  

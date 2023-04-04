@@ -11,6 +11,10 @@ h1,h4,p,a{
   text-decoration: none;
 }
 
+h2{
+color:#3F497F;
+}
+
 ul{
   list-style-type: none;
 }
@@ -34,12 +38,10 @@ body {
   font-weight: 600;
   cursor:pointer;
 }
-
 .btn-light{
   background: transparent;
   color: #fff;
 }
-
 .btn:hover{
   background-color: rgba(255,255,255,0.2);
   color: #fff;
@@ -61,9 +63,9 @@ body {
   padding-right:15px;
   padding-left:15px;
   min-height: 100vh;
-  padding-top: 100px;
-overflow-y: scroll; 
-height:200px;
+ overflow-y: scroll; 
+height:400px;
+padding-bottom:20px;
 
 }
 
@@ -108,8 +110,7 @@ strong{
  }
 
 .note{
-  background-color: #ECF2FF;
-  border-radius: 10px;
+  background-color: #ededed;;
   padding:1rem;
   min-height:170px;
   display: flex;
@@ -118,8 +119,9 @@ strong{
   white-space: pre-wrap;
   font-size: 1.2rem;
   font-weight: 700;
+border-block-start:5px solid #222;
+border-radius:10px;
 }
-
 .note-footer{
   display: flex;
   align-items: center;
@@ -135,7 +137,7 @@ strong{
   padding-right:15px;
   padding-left:15px;
   min-height: 100vh;
-  padding-top: 100px;
+  padding-top: 20px;
 }
 .left{         
 	    height:100%;

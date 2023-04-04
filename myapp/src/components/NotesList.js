@@ -11,6 +11,7 @@ function NotesList({notes ,handleAddNote,handleDeleteNote}){
                               text={notes.text} 
                               date={notes.date}
                               handleDeleteNote={handleDeleteNote}
+                              
                               />))}
                               <AddNote  handleAddNote={handleAddNote}
                               />
@@ -18,3 +19,5 @@ function NotesList({notes ,handleAddNote,handleDeleteNote}){
           )
 }
 export default NotesList;
+
+
