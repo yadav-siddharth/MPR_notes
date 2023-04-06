@@ -4,6 +4,34 @@ import countries from "../data";
 import Menubar from './Menubar';
 
 const Translate = () => {
+  const[input,setInput]=useState('');
+    const[output,setOutput]=useState('');
+
+    const sendInput=async(e)=>{
+        e.preventDefault();
+
+        const res = await fetch('http://localhost:8888/auth/login',{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                input
+            })
+        }).then((res) => {return res.json()});
+            const result = async () => {
+                const data = await res;
+                console.log(data);
+    
+                if(data.status === 422 || !data)
+                {
+                    window.alert('Something went wrong');
+                }
+                else{
+                    setOutput(data)
+                }
+    }
+}
   useEffect(() => {
     const fromText = document.querySelector(".from-text");
     const toText = document.querySelector(".to-text");
@@ -94,6 +122,7 @@ const Translate = () => {
         <div className="wrapper">
           <div className="text-input">
             <textarea
+            style={{height:'100px'}}
               spellcheck="false"
               className="from-text"
               placeholder="Type your Note"
@@ -120,7 +149,7 @@ const Translate = () => {
             </li>
           </ul>
           <div className="text-input">
-            <textarea
+            <textarea style={{height:'100px'}}
               spellcheck="false"
               readonly
               disabled
@@ -128,9 +157,12 @@ const Translate = () => {
               placeholder="Check For Output"
             ></textarea>
           </div>
-        
+          
         </div>
         <button>Translate Text</button>
+        <div className="'to-text" style={{height:'150px',border:'3px #ccc solid',marginTop:'10px',borderRadius:'10px',padding:'10px'}}>
+            
+          </div>
       </div>
     </div>
   );

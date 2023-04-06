@@ -1,5 +1,5 @@
 import './Hero.css';
-import '../index.css';
+import '../index2.css';
 import heroimg from '../assets/heroimg.jpeg';
 import React from 'react'
 import { Link } from 'react-router-dom';

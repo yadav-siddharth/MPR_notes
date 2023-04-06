@@ -2,7 +2,7 @@
 
 .box-menu{
 	position: absolute;
-	left: 1820px;
+	left: 1440px;
 	top: 50px;
 	cursor: pointer;
 	background: #ededed;
@@ -11,8 +11,9 @@
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, .3);
 	border-radius: 60px;
 	transition:height .4s;
+	margin-top: 150px;
 }
-.full-menu{height: 400px;}
+.full-menu{height: 300px;}
 .wrapper1{
 	position: relative;
 	width: 60px;
@@ -25,12 +26,16 @@
 }
 
 .box-menu.active{
-          height: 400px;
+          height: 280px;
 }
 
 .menu-item{
 	padding: 0;
 
+
+}
+.menu-item li{
+padding:1rem;
 }
 
 .menu-item button{

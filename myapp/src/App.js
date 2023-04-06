@@ -9,6 +9,7 @@ import Notes from './pages/Notes';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Implement from './pages/Implement';
+import Signup from './pages/Signup';
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/notes' element={<Notes/>} />
         <Route path='/implement' element={<Implement/>} />
         <Route path='/login' element={<Login/>} />
+        <Route path='/signup' element={<Signup/>} />
       </Routes>
     </>
       

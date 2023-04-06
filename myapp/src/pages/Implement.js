@@ -46,7 +46,10 @@ const deleteNote = (id) => {
 
 return (
           <div className={`${darkMode && 'dark-mode'}`}>
-                    
+                   <div> 
+                    <div>
+                        <Navbar/>
+                    </div>
                     <div className='notes-container'>
                               <div className='container'>
                                         <div className='notes-head'>
@@ -76,7 +79,7 @@ return (
                                  
                    
                     
-                    
+                    </div>
           </div>
           )
 }

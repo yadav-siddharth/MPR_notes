@@ -23,19 +23,19 @@ function Menubar(){
                                                   </div> */}
                                                   <ul className='menu-item'>
                                                             <li>
-                                                                      <button><FaCamera size="25" style={{color:'#0A2647'}}/></button>
+                                                                      <FaCamera size="25" style={{color:'#0A2647'}}/>
                                                             </li>
                                                             <li>
-                                                                      <button><FaAssistiveListeningSystems size="25" style={{color:'#222'}}/></button>
+                                                                      <FaAssistiveListeningSystems size="25" style={{color:'#222'}}/>
                                                             </li>
                                                             <li>
-                                                                      <button><FaStopCircle size="25" style={{color:'red'}}/></button>
+                                                                      <FaStopCircle size="25" style={{color:'red'}}/>
                                                             </li>
                                                             <li>
-                                                                      <button><SiGrammarly size="25" style={{color:'#ABC270'}}/></button>  
+                                                                      <SiGrammarly size="25" style={{color:'#ABC270'}}/>  
                                                             </li>
                                                             <li>
-                                                                      <button><FcNeutralDecision size="27" style={{color:'#ABC270'}}/></button>  
+                                                                      <FcNeutralDecision size="27" style={{color:'#ABC270'}}/> 
                                                             </li>
                                                             
                                                   </ul>         

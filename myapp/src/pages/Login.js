@@ -1,89 +1,84 @@
-import React from "react";
-import * as Components from './Components';
-import  { useState, useEffect, useRef } from 'react'
-import WAVES from 'vanta/dist/vanta.waves.min'
+import React from 'react'
+import { FcGoogle } from 'react-icons/fc';
 
-function Login() {
-    const [signIn, toggle] = React.useState(true);
+import { useNavigate } from 'react-router-dom'
 
-    const [vantaEffect1, setVantaEffect1] = useState(null)
-    const myRef1 = useRef(null)
-    useEffect(() => {
-      if (!vantaEffect1) {
-        setVantaEffect1(WAVES({
-              el: myRef1.current,
-              mouseControls: true,
-              touchControls: true,
-              gyroControls: false,
-              minHeight: 200.00,
-              minWidth: 200.00,
-              scale: 1.00,
-              scaleMobile: 1.00,
-              color:"#bbf9db"
+import {useState} from 'react'
+const Login = () => {
 
-        }))
-      }
-      return () => {
-        if (vantaEffect1) vantaEffect1.destroy()
-      }
-    }, [vantaEffect1])
+    const [name, setName] = useState("")
+    const [password, setPassword] = useState("")
+    const navigate=useNavigate();
+    // const [user,setUser]=useState({
+    //     name:"", password:""
+    // });
+    // let name,value;
+    // const handleInputs=(e)=>{
+    //     console.log(e);
+    //     name=e.target.name;
+    //     value=e.target.value;
 
-     return(
-        <Components.body1 ref={myRef1}>
+    //     setUser({...user,[name]:value})
+    // }
+
+    const PostData=async (e)=>{
+        e.preventDefault();
+
+        // const{ name, password} = user;
+        const res = await fetch('http://localhost:8888/auth/login',{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                name,password
+            })
+        }).then((res) => {return res.json()});
+        const result = async () => {
+            const data = await res;
+            console.log(data);
+
+            if(data.status === 422 || !data)
+            {
+                window.alert(data.message);
+            }
+            else{
+                window.alert(data.message);
+                navigate('/implement');
+            }
+            // navigate.push('/login');
+    }
+        result();
+    }
+
+  return (
+    <div className='relative w-full h-screen bg-zinc-900/90'>
+        <img src='https://www.pngmagic.com/product_images/green-color-background.jpg' alt="" className='absolute w-full h-full object-cover mix-blend-lighten'/>
+    <div className='flex justify-center items-center h-full bg-blend-overlay'>
+        <form action="POST" className='max-w-[400px] w-full mx-auto bg-white p-8 text-black rounded-3xl'>
+            <h2 className='text-4xl text-black font-bold text-center py-8'>NoteIn.Ai</h2>
+            {/* <div className='flex justify-between mb-5'>
+                <p className='border mx-auto shadow-lg hover:shadow-xl px-6 py-2 relative flex  items-center'>
+                    <FcGoogle className='mr-2'/>Google
+                </p>
+            </div> */}
+            <div className='flex flex-col mb-4'>
+                <label >Username</label>
+                <input type="text" value={name} className='border relative p-2 bg-gray-100' onChange = {(e) => setName(e.target.value)}/>
+            </div>
+            <div className='flex flex-col mb-4'>
+                <label>Password</label>
+                <input  value={password} className='border relative p-2 bg-gray-100' type="password" onChange = {(e) => setPassword(e.target.value)}/>
+            </div>
+            <button className='w-full py-3 mt-5  bg-indigo-600 hover:bg-indigo-500  relative text-white' onClick={PostData}>Login</button>
+            <p className='relative top-3 left-16'>New Member?<button className='w-full left-2 bottom-6 relative text-indigo-600' onClick={()=>navigate('/signup')}>Sign Up</button></p>
             
-            <Components.Container>
-              <Components.SignUpContainer signinIn={signIn}>
-                  <Components.Form>
-                      <Components.Title>Create Account</Components.Title>
-                      <Components.Input type='text' placeholder='Name' />
-                      <Components.Input type='email' placeholder='Email' />
-                      <Components.Input type='password' placeholder='Password' />
-                      <Components.Button>Sign Up</Components.Button>
-                  </Components.Form>
-              </Components.SignUpContainer>
-
-              <Components.SignInContainer signinIn={signIn}>
-                   <Components.Form>
-                       <Components.Title>Sign in</Components.Title>
-                       <Components.Input type='email' placeholder='Email' />
-                       <Components.Input type='password' placeholder='Password' />
-                       <Components.Anchor href='#'>Forgot your password?</Components.Anchor>
-                       <Components.Button>Sigin In</Components.Button>
-                   </Components.Form>
-              </Components.SignInContainer>
-
-              <Components.OverlayContainer signinIn={signIn}>
-                  <Components.Overlay signinIn={signIn}>
-
-                  <Components.LeftOverlayPanel signinIn={signIn}>
-                      <Components.Title>Welcome Back!</Components.Title>
-                      <Components.Paragraph>
-                          To keep connected with us please login with your personal info
-                      </Components.Paragraph>
-                      <Components.GhostButton onClick={() => toggle(true)}>
-                          Sign In
-                      </Components.GhostButton>
-                      </Components.LeftOverlayPanel>
-
-                      <Components.RightOverlayPanel signinIn={signIn}>
-                        <Components.Title>Notein.AI</Components.Title>
-                        <Components.Paragraph>
-                            Enter Your personal details and start journey with us
-                        </Components.Paragraph>
-                            <Components.GhostButton onClick={() => toggle(false)}>
-                                Sigin Up
-                            </Components.GhostButton> 
-                      </Components.RightOverlayPanel>
-  
-                  </Components.Overlay>
-              </Components.OverlayContainer>
-
-          </Components.Container>
-    </Components.body1>
+        </form>
+    </div>
+    </div>
     
-     )
+  )
 }
 
-export default Login;
-
+export default Login
 
